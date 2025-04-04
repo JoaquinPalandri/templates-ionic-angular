@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ScreenSizeService } from '../services/screen-size.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  isMobile: boolean = false;
+  private subscription!: Subscription;
 
+  constructor(private screenSizeService: ScreenSizeService) {}
+
+  ngOnInit() {
+    this.subscription = this.screenSizeService.getIsMobileObservable()
+      .subscribe(isMobile => this.isMobile = isMobile);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
