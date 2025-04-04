@@ -9,4 +9,9 @@
 <ion-content [fullscreen]="true">
   <p *ngIf="isMobile">Modo móvil</p>
   <p *ngIf="!isMobile">Modo escritorio</p>
+
+    <ion-button (click)="logServiceAction()">
+      {{ isLoggedIn ? 'DESLOGUEAR' : 'LOGUEAR' }}
+    </ion-button>
+  
 </ion-content>
