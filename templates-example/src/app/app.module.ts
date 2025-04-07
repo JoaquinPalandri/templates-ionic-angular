@@ -10,7 +10,7 @@ import { NavBarModule } from './components/nav-bar/nav-bar.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NavBarModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NavBarModule, NgxsModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
