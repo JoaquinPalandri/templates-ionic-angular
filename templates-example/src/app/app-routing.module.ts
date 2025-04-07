@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'setting',
     loadChildren: () => import('./pages/setting/setting.module').then( m => m.SettingPageModule)
   },
+  {
+    path: 'template-services',
+    loadChildren: () => import('./pages/template-services/template-services.module').then( m => m.TemplateServicesPageModule)
+  },
 ];
 
 @NgModule({
