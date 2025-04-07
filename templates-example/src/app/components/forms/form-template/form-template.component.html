@@ -1,0 +1,101 @@
+<form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
+  <!-- Nombre y Apellido -->
+  <ion-item>
+    <ion-icon slot="start" name="person-outline"></ion-icon>
+    <ion-input labelPlacement="stacked" label="Nombre y Apellido" formControlName="nombre"></ion-input>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.controls['nombre'].dirty && usuario.controls['nombre'].invalid">
+    * Este campo es obligatorio.
+  </ion-label>
+
+  <!-- Email -->
+  <ion-item>
+    <ion-icon slot="start" name="mail-outline"></ion-icon>
+    <ion-input type="email" labelPlacement="stacked" label="Email" placeholder="email@domain.com" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.controls['email'].dirty && usuario.controls['email'].errors?.['email']">
+    * El email no es válido.
+  </ion-label>
+
+  <!-- Teléfono -->
+  <ion-item>
+    <ion-icon slot="start" name="call-outline"></ion-icon>
+    <ion-input type="tel" labelPlacement="stacked" label="Teléfono" formControlName="telefono"></ion-input>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.controls['telefono'].dirty && usuario.controls['telefono'].invalid">
+    * Ingrese un número de teléfono válido.
+  </ion-label>
+
+  <!-- Fecha de Nacimiento -->
+  <ion-item>
+    <ion-icon slot="start" name="calendar-outline"></ion-icon>
+    <ion-input 
+      type="date" 
+      labelPlacement="stacked"
+      label="Fecha de Nacimiento" 
+      formControlName="fechaNacimiento"
+      min="1900-01-01"
+      max="2030-01-01"
+      slot="start">
+    </ion-input>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.controls['fechaNacimiento'].dirty && usuario.controls['fechaNacimiento'].invalid">
+    * Fecha incorrecta.
+  </ion-label>
+
+  <!-- Género -->
+  <ion-item>
+    <ion-icon slot="start" name="male-female-outline"></ion-icon>
+    <ion-select labelPlacement="stacked" label="Género" formControlName="genero">
+      <ion-select-option value="masculino">Masculino</ion-select-option>
+      <ion-select-option value="femenino">Femenino</ion-select-option>
+      <ion-select-option value="otro">Otro</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Contraseña -->
+  <ion-item>
+    <ion-icon slot="start" name="lock-closed"></ion-icon>
+    <ion-input 
+      labelPlacement="stacked" 
+      label="Contraseña" 
+      formControlName="password" 
+      placeholder="******" 
+      type="password">
+      <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+    </ion-input>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.controls['password'].dirty && usuario.controls['password']?.errors?.['minlength']">
+    * La contraseña debe tener al menos 6 caracteres.
+  </ion-label>
+
+  <!-- Confirmar Contraseña -->
+  <ion-item>
+    <ion-icon slot="start" name="lock-closed"></ion-icon>
+    <ion-input 
+      labelPlacement="stacked" 
+      label="Confirmar Contraseña" 
+      formControlName="confirmPassword"
+      placeholder="******" 
+      type="password">
+      <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+    </ion-input>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.errors?.['notMatching']">
+    * Las contraseñas no coinciden.
+  </ion-label>
+
+  <!-- Aceptar Términos -->
+  <ion-item>
+    <ion-checkbox formControlName="terminos"></ion-checkbox>
+    <ion-label>Acepto los términos y condiciones</ion-label>
+  </ion-item>
+  <ion-label color="danger" *ngIf="usuario.controls['terminos'].dirty && usuario.controls['terminos'].invalid">
+    * Debe aceptar los términos y condiciones.
+  </ion-label>
+
+  <!-- Botón de Guardar -->
+  <p class="ion-text-center">
+    <ion-button type="submit" [disabled]="!usuario.valid">Guardar</ion-button>
+  </p>
+</form>
