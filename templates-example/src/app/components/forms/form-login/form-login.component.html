@@ -1,32 +1,27 @@
 <form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
-  <h1 class="ion-text-center">Iniciar Sesión</h1>
+  <h1 class="ion-text-center">Bienvenidos</h1>
   <ion-item class="ion-no-padding">
     <ion-icon slot="start" name="mail-outline"></ion-icon>
-    <ion-input type="email" labelPlacement="stacked" label="Email" placeholder="email@domain.com" formControlName="email"></ion-input>
+    <ion-input type="email" labelPlacement="stacked" label="Email" placeholder="email@domain.com"
+      formControlName="email"></ion-input>
   </ion-item>
   <ion-label color="danger" *ngIf="usuario.controls['email'].dirty && usuario.controls['email'].errors?.['email']">
     * El email no es válido.
   </ion-label>
+  <!-- Contraseña -->
+  <ion-item class="ion-no-padding">
+    <ion-icon slot="start" name="lock-closed"></ion-icon>
+    <ion-input labelPlacement="stacked" label="Contraseña" formControlName="password" placeholder="******"
+      type="password">
+      <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+    </ion-input>
+  </ion-item>
+  <ion-label color="danger"
+    *ngIf="usuario.controls['password'].dirty && usuario.controls['password']?.errors?.['minlength']">
+    * La contraseña debe tener al menos 6 caracteres.
+  </ion-label>
 
-
-    <!-- Contraseña -->
-    <ion-item class="ion-no-padding">
-      <ion-icon slot="start" name="lock-closed"></ion-icon>
-      <ion-input 
-        labelPlacement="stacked" 
-        label="Contraseña" 
-        formControlName="password" 
-        placeholder="******" 
-        type="password">
-        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
-      </ion-input>
-    </ion-item>
-    <ion-label color="danger" *ngIf="usuario.controls['password'].dirty && usuario.controls['password']?.errors?.['minlength']">
-      * La contraseña debe tener al menos 6 caracteres.
-    </ion-label>
-
-      <!-- Botón de Guardar -->
   <p class="ion-text-center">
-    <ion-button type="submit" [disabled]="!usuario.valid">Guardar</ion-button>
+    <ion-button type="submit" [disabled]="!usuario.valid">Iniciar Sesión</ion-button>
   </p>
 </form>

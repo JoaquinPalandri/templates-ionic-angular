@@ -10,5 +10,10 @@
       <app-form-login>        
       </app-form-login>
     </ion-card>
+      
+  <ion-button (click)="logServiceAction()">
+    {{ isLoggedIn ? 'DESLOGUEAR' : 'LOGUEAR' }}
+  </ion-button>
   </div>
+
 </ion-content>
