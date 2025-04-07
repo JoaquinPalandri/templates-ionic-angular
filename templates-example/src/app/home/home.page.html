@@ -8,24 +8,4 @@
 
 <ion-content [fullscreen]="true">
   <app-form-template></app-form-template>
-
-<h1>TAMAÑO DE LA PANTALLA</h1>
-  <p *ngIf="isMobile">Modo móvil</p>
-  <p *ngIf="!isMobile">Modo escritorio</p>
-  <br>
-  <br>
-  <br>
-
-  <h1>BOTON DE AUTENTICACIÓN</h1>
-  <ion-button (click)="logServiceAction()">
-    {{ isLoggedIn ? 'DESLOGUEAR' : 'LOGUEAR' }}
-  </ion-button>
-  <br>
-  <br>
-  <br>
-
-  <h1>BOTONES DEL LOCALSTORAGE</h1>
-  <ion-button (click)="guardarEnLocalStorage()">Guardar usuario</ion-button>
-  <ion-button (click)="leerDeLocalStorage()">Leer usuario</ion-button>
-  <ion-button (click)="borrarDeLocalStorage()">Borrar usuario</ion-button>
 </ion-content>
