@@ -1,0 +1,28 @@
+ion-content {
+    --background: url('../../../assets/background/degrade-azul.webp') no-repeat center center / cover;
+  }
+
+  .contenedor-general {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 100%;
+  }
+  
+  .contenedor-form-login {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+
+@media screen and (max-width: 768px) {
+    .contenedor-form-login {     
+        margin: 10px;
+        padding: 10px;
+      }
+
+}
