@@ -41,13 +41,16 @@ console.log('Acceso biométrico activado');
 async performBiometricVerification(){
   const result = await NativeBiometric.isAvailable();
 
-  if(result.isAvailable) {
-    alert('Biometric authentication is not available'); }
-
+  if(!result.isAvailable) return;
+  
   const verified = await NativeBiometric.verifyIdentity()
     .then(() => true)
     .catch(() => false);
 
-  if(!verified) return;
+  if(verified){
+  alert('Biometric verification successful');
+    } else {
+      alert('ERROR');
+    }
 }
 }
