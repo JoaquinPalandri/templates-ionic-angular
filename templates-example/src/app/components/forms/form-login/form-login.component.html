@@ -1,4 +1,4 @@
-<form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
+<form [formGroup]="usuario" (ngSubmit)="enviarDatos()">
   <h1 class="ion-text-center">Bienvenidos</h1>
   <ion-item class="ion-no-padding">
     <ion-icon slot="start" name="mail-outline"></ion-icon>
@@ -24,4 +24,10 @@
   <p class="ion-text-center">
     <ion-button type="submit" [disabled]="!usuario.valid">Iniciar Sesión</ion-button>
   </p>
+  <div class="ion-text-center">
+    <ion-button  (click)="performBiometricVerification()">
+      <ion-icon slot="start" name="finger-print"></ion-icon>
+      Acceso Biométrico
+    </ion-button>
+  </div>
 </form>

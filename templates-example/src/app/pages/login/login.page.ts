@@ -27,4 +27,11 @@ export class LoginPage implements OnInit {
     this.isLoggedIn ? this.authService.logout() : this.authService.login();
     console.log('Service action executed:', this.isLoggedIn);
   }
+  recibirDatos(data: { email: string; password: string }) {
+    console.log('Datos recibidos del hijo:', data);
+  
+    // Ejemplo: podrías llamar a un servicio de autenticación
+    // this.authService.login(data.email, data.password);
+  }
+
 }

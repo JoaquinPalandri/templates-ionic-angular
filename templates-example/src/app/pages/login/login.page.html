@@ -7,13 +7,13 @@
 <ion-content [fullscreen]="true">
   <div class="contenedor-general">
     <ion-card class="contenedor-form-login ion-no-margin">
-      <app-form-login>        
-      </app-form-login>
+      <app-form-login (loginData)="recibirDatos($event)"></app-form-login>
     </ion-card>
       
-  <ion-button (click)="logServiceAction()">
+  <!-- <ion-button (click)="logServiceAction()">
     {{ isLoggedIn ? 'DESLOGUEAR' : 'LOGUEAR' }}
-  </ion-button>
+  </ion-button> -->
+  
   </div>
 
 </ion-content>
