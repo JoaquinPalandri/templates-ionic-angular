@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NativeBiometric, BiometryType } from "@capgo/capacitor-native-biometric";
+
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -38,19 +38,5 @@ console.log('Acceso biométrico activado');
   }
 
 
-async performBiometricVerification(){
-  const result = await NativeBiometric.isAvailable();
 
-  if(!result.isAvailable) return;
-  
-  const verified = await NativeBiometric.verifyIdentity()
-    .then(() => true)
-    .catch(() => false);
-
-  if(verified){
-  alert('Biometric verification successful');
-    } else {
-      alert('ERROR');
-    }
-}
 }

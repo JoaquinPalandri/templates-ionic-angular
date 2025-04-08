@@ -13,7 +13,13 @@
   <!-- <ion-button (click)="logServiceAction()">
     {{ isLoggedIn ? 'DESLOGUEAR' : 'LOGUEAR' }}
   </ion-button> -->
-  
+ 
   </div>
-
+ <div class="ion-text-center">
+    <ion-button  (click)="performBiometricVerification()">
+      <ion-icon slot="start" name="finger-print"></ion-icon>
+      Acceso Biométrico
+    </ion-button>
+  </div>
+  
 </ion-content>
